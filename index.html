@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Task Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-icon">🎓</div>
+      <h1>Student Task Tracker</h1>
+      <p class="subtitle">Organize your homework, assignments, and study goals</p>
+    </header>
+
+    <!-- Task Summary Badges -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-label">Total Tasks</span>
+        <span class="stat-value" id="stat-total">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Pending</span>
+        <span class="stat-value pending" id="stat-pending">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Completed</span>
+        <span class="stat-value completed" id="stat-completed">0</span>
+      </div>
+    </section>
+
+    <!-- Task Creation Form -->
+    <section class="card form-card">
+      <h2 class="section-title">Add New Task</h2>
+      <form id="task-form">
+        <div class="form-row">
+          <div class="form-group flex-2">
+            <label for="task-title">Task Description *</label>
+            <input type="text" id="task-title" placeholder="e.g., Complete Math Chapter 4 Exercises" required />
+          </div>
+          <div class="form-group flex-1">
+            <label for="task-subject">Subject / Course</label>
+            <input type="text" id="task-subject" placeholder="e.g., Mathematics" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="task-due-date">Due Date</label>
+            <input type="date" id="task-due-date" />
+          </div>
+          <div class="form-group flex-1">
+            <label for="task-priority">Priority</label>
+            <select id="task-priority">
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+          <div class="form-group form-action">
+            <button type="submit" class="btn btn-primary" id="add-task-btn">
+              <span>+ Add Task</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Task List & Filters -->
+    <section class="card list-card">
+      <div class="list-header">
+        <h2 class="section-title">My Tasks</h2>
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="pending">Pending</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+      </div>
+
+      <!-- Task Items Container -->
+      <ul id="task-list" class="task-list" aria-live="polite">
+        <!-- Rendered by JavaScript -->
+      </ul>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon">📝</div>
+        <h3>No tasks found</h3>
+        <p>You have no tasks under this view. Add one above to get started!</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
